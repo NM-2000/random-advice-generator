@@ -8,17 +8,29 @@ class App extends React.Component {
     state = {
         advice: ""
     }
+
+    constructor(props) {
+        super(props);
+    
+        this.fetchAdvice = this.fetchAdvice.bind(this);
+    }
     
     componentDidMount() {
+        this.fetchAdvice();
+    }
+
+    fetchAdvice() {
+        console.log("fetch")
         axios.get(API_END_POINT.GET_ADVICE)
-            .then((response) => {
-                const { data: { slip: { advice: response_advice } } } = response;
-                this.setState({
-                    advice: response_advice
-                });
-            }).catch((error) => {
-                console.warn(error);
+        .then((response) => {
+            const { data: { slip: { advice: response_advice } } } = response;
+            console.log(this);
+            this.setState({
+                advice: response_advice
             });
+        }).catch((error) => {
+            console.warn(error);
+        });
     }
 
     render() {
@@ -27,7 +39,12 @@ class App extends React.Component {
         return (
             <div className="container" >
                 <div className="card" >
-                    <h1 className="advice" >{ advice }</h1>
+                    <div className="advice-wrapper" >
+                        <h1 className="advice" >{ advice }</h1>
+                    </div>
+                    <button className="button" onClick={this.fetchAdvice} >
+                        <span className="button-span" >Give Me Advice!</span>
+                    </button>
                 </div>
             </div>
         );

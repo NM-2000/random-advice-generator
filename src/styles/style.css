@@ -24,12 +24,35 @@
     background-color: wheat;
     border-radius: 16px;
     box-shadow: 8px 8px ;
-    padding: 16px;
-    box-sizing: border-box;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+.advice-wrapper {
+    height: 120px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
 }
 
 .advice {
     font-family: 'Fredoka', sans-serif;
     text-align: center;
     user-select: none;
+}
+
+.button {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+.button-span {
+    font-family: 'Fredoka', sans-serif;
 }
