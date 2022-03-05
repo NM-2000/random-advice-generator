@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { API_END_POINT } from './Constants';
+import './styles/style.css';
 
 class App extends React.Component {
 
@@ -24,7 +25,11 @@ class App extends React.Component {
         const { advice } = this.state;
 
         return (
-            <h1>{advice}</h1>
+            <div className="container" >
+                <div className="card" >
+                    <h1 className="advice" >{ advice }</h1>
+                </div>
+            </div>
         );
 
     }
