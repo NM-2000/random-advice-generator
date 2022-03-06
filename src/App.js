@@ -20,11 +20,9 @@ class App extends React.Component {
     }
 
     fetchAdvice() {
-        console.log("fetch")
         axios.get(API_END_POINT.GET_ADVICE)
         .then((response) => {
             const { data: { slip: { advice: response_advice } } } = response;
-            console.log(this);
             this.setState({
                 advice: response_advice
             });
@@ -43,7 +41,7 @@ class App extends React.Component {
                         <h1 className="advice" >{ advice }</h1>
                     </div>
                     <button className="button" onClick={this.fetchAdvice} >
-                        <span className="button-span" >Give Me Advice!</span>
+                        <span className="button-span" >GIVE ME ADVICE!</span>
                     </button>
                 </div>
             </div>
